@@ -18,7 +18,6 @@ class Huffman:
         self.originaldata = data
         self.width = width
         self.data  = [l for l in iter(partial(StringIO.StringIO(data).read, self.width), '')]
-
         self.dictionary = dict()
 
     #   Function: encode_huffman
@@ -56,7 +55,7 @@ class Huffman:
     #   Arguments: encodedvalue (encoded huffman data)
     #   Description:
     #       Since characters are used for bit representation the equation becomes
-    #       len(compressed bits) / (len(original data) * width * 8). Assuming each character
+    #       len(compressed bits) / (len(original data) * 8). Assuming each character
     #       takes 8 bits.
     #   Returns:
     #       How much % the data is compressed.
@@ -181,7 +180,7 @@ test_data_5 = "test_data.txt"
 
 def test_encoding_decoded(data):
     originaldata = data
-    huf = Huffman(originaldata, 1)
+    huf = Huffman(originaldata, 4)
     encoded_data = huf.encode_huffman()
     reencoded_data = huf.decode_huffman(encoded_data)
 
